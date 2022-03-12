@@ -9,7 +9,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [macast-git, qqmusic-bin, mpv-mpris, weechat-notify-send, yesplaymusic, onedrive-abraunegg, nautilus-copy-path,  zsh-theme-powerlevel10k-git, dingtalk-bin, gnome-terminal-transparency]
+        repos: [macast-git, qqmusic-bin, mpv-mpris, weechat-notify-send, yesplaymusic, onedrive-abraunegg, nautilus-copy-path,  zsh-theme-powerlevel10k-git, dingtalk-bin]
 
       fail-fast: false
       
