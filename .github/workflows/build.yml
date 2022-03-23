@@ -9,7 +9,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [macast-git]
+        repos: [marktext-git]
 
       fail-fast: false
       
@@ -34,11 +34,12 @@ jobs:
         tag: "packages"
         artifacts: "./*/*.zst"
         token: ${{ secrets.GITHUB_TOKEN }}
+    - run: ls -la
 
   buildNonAUR:
     strategy:
       matrix:
-        PKGBUILDs: [breeze10, python-octodns]
+        PKGBUILDs: []
 
       fail-fast: false
       
