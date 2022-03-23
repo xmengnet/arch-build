@@ -9,13 +9,14 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [macast-git, qqmusic-bin, mpv-mpris, weechat-notify-send, yesplaymusic, onedrive-abraunegg, nautilus-copy-path,  zsh-theme-powerlevel10k-git, dingtalk-bin,marktext-git]
+        repos: [macast-git]
 
       fail-fast: false
       
     runs-on: ubuntu-latest
     
     steps:
+    
     - uses: actions/checkout@v2
     
     - uses: ./build-aur-action
@@ -64,6 +65,7 @@ jobs:
           tag: "packages"
           artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
           token: ${{ secrets.GITHUB_TOKEN }}
+      - run: ls -la
           
   # uploadToOneDrive:      
   #   runs-on: ubuntu-latest
