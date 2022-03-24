@@ -1,3 +1,4 @@
+
 name: BUILD
 
 on:
@@ -9,17 +10,16 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [marktext-git]
+        repos: [osu-lazer, weechat-notify-send]
 
       fail-fast: false
       
     runs-on: ubuntu-latest
     
     steps:
-    
     - uses: actions/checkout@v2
     
-    - uses: zjuyk/pkgbuild-aur@master
+    - uses: ./build-aur-action
       with:
         repo-name: ${{ matrix.repos }}
     
@@ -34,12 +34,12 @@ jobs:
         tag: "packages"
         artifacts: "./*/*.zst"
         token: ${{ secrets.GITHUB_TOKEN }}
-    - run: ls -la ./*/
+    - uses: ls -la ./*/*.zst
 
   buildNonAUR:
     strategy:
       matrix:
-        PKGBUILDs: [breeze10]
+        PKGBUILDs: [breeze10, python-octodns]
 
       fail-fast: false
       
@@ -66,8 +66,8 @@ jobs:
           tag: "packages"
           artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
           token: ${{ secrets.GITHUB_TOKEN }}
-      - run: ls -la ./*/
-          
+      - uses: ls -la ./*/*.zst
+               
   # uploadToOneDrive:      
   #   runs-on: ubuntu-latest
   #   if: always()
