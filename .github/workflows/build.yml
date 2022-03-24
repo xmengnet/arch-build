@@ -10,7 +10,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition,  mongodb-bin, nautilus-copy-path, ocs-url, onedrive-abraunegg, qqmusic-bin, ttf-meslo-nerd-font-powerlevel10k, ttf-wps-fonts, wemeet-bin, wps-office-cn, wps-office-mime-cn, wps-office-mui-zh-cn, yesplaymusic, zsh-theme-powerlevel10k-git]
+        repos: [marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition,  mongodb-bin, nautilus-copy-path, ocs-url, onedrive-abraunegg, qqmusic-bin, ttf-meslo-nerd-font-powerlevel10k, ttf-wps-fonts, wemeet-bin, wps-office-cn, wps-office-mime-cn, wps-office-mui-zh-cn, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome, clash-for-windows-bin, clash-for-windows-electron-bin, clash-premium-bin, clash-premium-tun, clash-tun, clash-user, netease-music-tui-bin, typora-free, visual-studio-code-bin]
 
       fail-fast: false
       
@@ -31,7 +31,7 @@ jobs:
     - uses: ncipollo/release-action@v1
       with:
         allowUpdates: true
-        tag: "packages"
+        tag: "add some packages"
         artifacts: "./*/*.zst"
         token: ${{ secrets.GITHUB_TOKEN }}
     - run: ls -la ./*/*
