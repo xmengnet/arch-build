@@ -10,7 +10,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [osu-lazer, marktext-bin]
+        repos: [marktext-bin, aria2-config-script, dingtalk-bin, freechat-uos, intellij-idea-ultimate-edition, intellij-idea-ultimate-edition-jre, mongodb-bin, nautilus-copy-path, ocs-url, onedrive-abraunegg, qqmusic-bin, ttf-meslo-nerd-font-powerlevel10k, ttf-wps-fonts, ttf-wqy-zenhei-ibx, wemeet-bin, wps-office-cn, wps-office-mime-cn, wps-office-mui-zh-cn, yesplaymusic, zsh-theme-powerlevel10k-git]
 
       fail-fast: false
       
