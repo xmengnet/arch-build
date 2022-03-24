@@ -39,7 +39,7 @@ jobs:
   buildNonAUR:
     strategy:
       matrix:
-        PKGBUILDs: [breeze10]
+        PKGBUILDs: [Mathematica]
 
       fail-fast: false
       
