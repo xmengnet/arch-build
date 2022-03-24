@@ -10,7 +10,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [osu-lazer, marktext-git]
+        repos: [osu-lazer, marktext-bin]
 
       fail-fast: false
       
