@@ -34,39 +34,39 @@ jobs:
         tag: "packages"
         artifacts: "./*/*.zst"
         token: ${{ secrets.GITHUB_TOKEN }}
-    - run: ls -la ./*/*.zst
+    - run: ls -la ./*/*
 
-  buildNonAUR:
-    strategy:
-      matrix:
-        PKGBUILDs: [Mathematica]
+  # buildNonAUR:
+  #   strategy:
+  #     matrix:
+  #       PKGBUILDs: [Mathematica]
 
-      fail-fast: false
+  #     fail-fast: false
       
-    runs-on: ubuntu-latest
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Build Non-AUR packages
-        id: makepkg
-        uses: ./build-nonaur-action
-        with:
-          pkgdir: ${{ matrix.PKGBUILDs }}
-          aurDeps: true
+  #     - name: Build Non-AUR packages
+  #       id: makepkg
+  #       uses: ./build-nonaur-action
+  #       with:
+  #         pkgdir: ${{ matrix.PKGBUILDs }}
+  #         aurDeps: true
           
-      - uses: actions/upload-artifact@v2
-        with:
-          path: ./*/*.pkg.tar.zst
-          name: ${{ matrix.PKGBUILDs }}
+  #     - uses: actions/upload-artifact@v2
+  #       with:
+  #         path: ./*/*.pkg.tar.zst
+  #         name: ${{ matrix.PKGBUILDs }}
       
-      - uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          tag: "packages"
-          artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-      - run: ls -la ./*/*.zst
+  #     - uses: ncipollo/release-action@v1
+  #       with:
+  #         allowUpdates: true
+  #         tag: "packages"
+  #         artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #     - run: ls -la ./*/*.zst
                
   # uploadToOneDrive:      
   #   runs-on: ubuntu-latest
