@@ -10,7 +10,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [osu-lazer, weechat-notify-send]
+        repos: [osu-lazer, marktext-git]
 
       fail-fast: false
       
@@ -39,7 +39,7 @@ jobs:
   buildNonAUR:
     strategy:
       matrix:
-        PKGBUILDs: [breeze10, python-octodns]
+        PKGBUILDs: [breeze10]
 
       fail-fast: false
       
