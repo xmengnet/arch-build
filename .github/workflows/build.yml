@@ -19,7 +19,7 @@ jobs:
     
     - uses: actions/checkout@v2
     
-    - uses: ./build-aur-action
+    - uses: DuckSoft/build-aur-action@master
       with:
         repo-name: ${{ matrix.repos }}
     
