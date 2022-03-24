@@ -34,7 +34,7 @@ jobs:
         tag: "packages"
         artifacts: "./*/*.zst"
         token: ${{ secrets.GITHUB_TOKEN }}
-    - uses: ls -la ./*/*.zst
+    - run: ls -la ./*/*.zst
 
   buildNonAUR:
     strategy:
@@ -66,7 +66,7 @@ jobs:
           tag: "packages"
           artifacts: ${{ steps.makepkg.outputs.pkgfile0 }}
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: ls -la ./*/*.zst
+      - run: ls -la ./*/*.zst
                
   # uploadToOneDrive:      
   #   runs-on: ubuntu-latest
