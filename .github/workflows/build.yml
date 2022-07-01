@@ -10,7 +10,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition, ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome, clash-for-windows-bin, clash-for-windows-electron-bin, clash-premium-bin, clash-premium-tun, clash-tun, netease-music-tui-bin, typora-free, visual-studio-code-bin]
+        repos: [marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition, ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome, clash-for-windows-bin, clash-for-windows-electron-bin, clash-premium-bin, clash-premium-tun, clash-tun, netease-music-tui-bin, typora-free, visual-studio-code-bin, amberol]
 
       fail-fast: false
       
