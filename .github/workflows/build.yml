@@ -29,7 +29,7 @@ jobs:
         repo-name: ${{ matrix.repos }}
         preinstallPkgs: ${{ matrix.preinstall-pkgs }}
     
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         path: ./*/*.pkg.tar.zst
         name: ${{ matrix.repos }}
