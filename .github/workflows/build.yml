@@ -10,23 +10,30 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [marktext-bin, dingtalk-bin, intellij-idea-ultimate-edition, ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, google-chrome, clash-for-windows-bin, clash-for-windows-electron-bin, clash-premium-bin,  netease-music-tui-bin, visual-studio-code-bin]
+        repos: [marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition, ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome, clash-for-windows-bin, clash-for-windows-electron-bin, clash-premium-bin, clash-premium-tun,  netease-music-tui-bin, visual-studio-code-bin]
+        include:
+          - repos: git-cola
+            preinstall-pkgs: "at-spi2-core"
+          - repos: realesrgan-ncnn-vulkan
+            preinstall-pkgs: "vulkan-intel"
 
       fail-fast: false
       
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - uses: ./build-aur-action
       with:
         repo-name: ${{ matrix.repos }}
+        preinstallPkgs: ${{ matrix.preinstall-pkgs }}
     
     - uses: actions/upload-artifact@v2
       with:
         path: ./*/*.pkg.tar.zst
         name: ${{ matrix.repos }}
+        if-no-files-found: error
         
     - uses: ncipollo/release-action@v1
       with:
@@ -34,7 +41,7 @@ jobs:
         tag: "packages"
         artifacts: "./*/*.zst"
         token: ${{ secrets.GITHUB_TOKEN }}
-  #  - run: ls -la ./*/*
+
 
   # buildNonAUR:
   #   strategy:
@@ -46,7 +53,7 @@ jobs:
   #   runs-on: ubuntu-latest
 
   #   steps:
-  #     - uses: actions/checkout@v2
+  #     - uses: actions/checkout@v3
 
   #     - name: Build Non-AUR packages
   #       id: makepkg
@@ -55,7 +62,7 @@ jobs:
   #         pkgdir: ${{ matrix.PKGBUILDs }}
   #         aurDeps: true
           
-  #     - uses: actions/upload-artifact@v2
+  #     - uses: actions/upload-artifact@v3
   #       with:
   #         path: ./*/*.pkg.tar.zst
   #         name: ${{ matrix.PKGBUILDs }}
@@ -74,9 +81,9 @@ jobs:
   #   needs: [buildAUR, buildNonAUR]
 
   #   steps:
-  #     - uses: actions/checkout@v2
+  #     - uses: actions/checkout@v3
       
-  #     - uses: actions/download-artifact@v2
+  #     - uses: actions/download-artifact@v3
   #       id: download
       
   #     - uses: ./create-db-and-upload-action
