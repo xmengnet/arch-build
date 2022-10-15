@@ -10,12 +10,12 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [osu-lazer, weechat-notify-send, fpp, redsocks, drill, git-cola, makedeb, qbittorrent-qt5, realesrgan-ncnn-vulkan]
-        include:
-          - repos: git-cola
-            preinstall-pkgs: "at-spi2-core"
-          - repos: realesrgan-ncnn-vulkan
-            preinstall-pkgs: "vulkan-intel"
+        repos: [marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition, ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome,  clash-premium-bin,  visual-studio-code-bin]
+        # include:
+        #   - repos: git-cola
+        #     preinstall-pkgs: "at-spi2-core"
+        #   - repos: realesrgan-ncnn-vulkan
+        #     preinstall-pkgs: "vulkan-intel"
 
       fail-fast: false
       
@@ -27,7 +27,7 @@ jobs:
     - uses: ./build-aur-action
       with:
         repo-name: ${{ matrix.repos }}
-        preinstallPkgs: ${{ matrix.preinstall-pkgs }}
+        # preinstallPkgs: ${{ matrix.preinstall-pkgs }}
     
     - uses: actions/upload-artifact@v3
       with:
