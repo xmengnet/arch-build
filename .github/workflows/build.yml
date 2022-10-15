@@ -10,7 +10,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition, ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome, clash-for-windows-bin, clash-for-windows-electron-bin, clash-premium-bin, clash-premium-tun,  netease-music-tui-bin, visual-studio-code-bin]
+        repos: [osu-lazer, weechat-notify-send, fpp, redsocks, drill, git-cola, makedeb, qbittorrent-qt5, realesrgan-ncnn-vulkan]
         include:
           - repos: git-cola
             preinstall-pkgs: "at-spi2-core"
