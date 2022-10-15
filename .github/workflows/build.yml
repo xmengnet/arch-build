@@ -10,13 +10,20 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [ marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition, ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome,  clash-premium-bin,  visual-studio-code-bin]
+        repos: [ marktext-bin, aria2-config-script, dingtalk-bin,  ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome,  clash-premium-bin,  visual-studio-code-bin]
         include:
-          - repos: [ marktext-bin, aria2-config-script, dingtalk-bin, intellij-idea-ultimate-edition, ocs-url, onedrive-abraunegg, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome,  clash-premium-bin,  visual-studio-code-bin]
+          - repos: marktext-bin
             preinstall-pkgs: "at-spi2-core"
-        #   - repos: realesrgan-ncnn-vulkan
-        #     preinstall-pkgs: "vulkan-intel"
-
+          - repos: qqmusic-bin
+            preinstall-pkgs: "at-spi2-core"
+          - repos: yesplaymusic
+            preinstall-pkgs: "at-spi2-core"
+          - repos: google-chrome
+            preinstall-pkgs: "at-spi2-core"
+          - repos: clash-premium-bin
+            preinstall-pkgs: "at-spi2-core"
+          - repos: visual-studio-code-bin
+            preinstall-pkgs: "at-spi2-core"
       fail-fast: false
       
     runs-on: ubuntu-latest
