@@ -10,7 +10,7 @@ jobs:
   buildAUR:
     strategy:
       matrix:
-        repos: [ marktext-bin, aria2-config-script, dingtalk-bin,  ocs-url, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome,  visual-studio-code-bin]
+        repos: [ marktext-bin, aria2-config-script, dingtalk-bin,  ocs-url, qqmusic-bin,  ttf-wps-fonts, wemeet-bin, yesplaymusic, zsh-theme-powerlevel10k-git, google-chrome,  visual-studio-code-bin, linux-clear]
         include:
           - repos: marktext-bin
             preinstall-pkgs: "at-spi2-core"
